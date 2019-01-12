@@ -7,12 +7,10 @@ public class MapManager : MonoBehaviour
     public int width = 100;
     public int height = 100;
     public float perlinScaleMin = 2f;
-    public float perlinScaleMax = 6f;
-    public Tile ground;
-    public Tile water;
-    public float thresholdMin = 0.4f;
-    public float thresholdMax = 0.6f;
-    public float duration = 1f;
+    public float perlinScaleMax = 5f;
+    public Tile[] tiles;
+    public float[] thresholds;
+    public float duration = 2f;
 
     Tilemap tilemap;
 
@@ -26,7 +24,6 @@ public class MapManager : MonoBehaviour
     IEnumerator NextMap()
     {
         float perlinScale = Random.Range(perlinScaleMin, perlinScaleMax);
-        float threshold = Random.Range(thresholdMin, thresholdMax);
 
         tilemap.ClearAllTiles();
 
@@ -37,7 +34,7 @@ public class MapManager : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 Vector3Int pos = new Vector3Int(i, j, 0);
-                Tile t = (noise[i, j] < threshold) ? ground : water;
+                Tile t = tiles[GetIndex(noise[i, j])];
                 tilemap.SetTile(pos, t);
             }
         }
@@ -45,5 +42,18 @@ public class MapManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         StartCoroutine(NextMap());
+    }
+
+    int GetIndex(float value)
+    {
+        for (int i = 0; i < thresholds.Length; i++)
+        {
+            if (value < thresholds[i])
+            {
+                return i;
+            }
+        }
+
+        return tiles.Length - 1;
     }
 }
