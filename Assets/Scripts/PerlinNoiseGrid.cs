@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// A grid of Perlin Noise values at a given scale.
+/// </summary>
 public class PerlinNoiseGrid
 {
     public int width;
@@ -19,7 +22,7 @@ public class PerlinNoiseGrid
     }
 
     /// <summary>
-    /// Creates a 2D grid of perlin noise values.
+    /// Creates a grid of Perlin Noise values.
     /// </summary>
     /// <param name="width">Width of the grid.</param>
     /// <param name="height">Height of the grid.</param>
