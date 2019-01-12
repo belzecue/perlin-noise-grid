@@ -18,6 +18,12 @@ public class PerlinNoiseGrid
         }
     }
 
+    /// <summary>
+    /// Creates a 2D grid of perlin noise values.
+    /// </summary>
+    /// <param name="width">Width of the grid.</param>
+    /// <param name="height">Height of the grid.</param>
+    /// <param name="perlinScale">Scale of the grid. Increase to zoom out and decrease to zoom in.</param>
     public PerlinNoiseGrid(int width, int height, float perlinScale)
     {
         this.width = width;

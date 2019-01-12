@@ -285,17 +285,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 160
   height: 90
-  perlinScale: 4
-  tiles:
-  - {fileID: 11400000, guid: 496421e6f8447401d9930ed7723ffcc3, type: 2}
-  - {fileID: 11400000, guid: d920ed9d6a56b49fc8257b1bf8ae1b98, type: 2}
-  - {fileID: 11400000, guid: 03be7ddaff1f9403f921f9589e2ab401, type: 2}
-  - {fileID: 11400000, guid: c84548e4905cf45198a87f3d85d3ae3e, type: 2}
-  thresholds:
-  - 0.25
-  - 0.5
-  - 0.75
-  duration: 1
+  perlinScaleMin: 2
+  perlinScaleMax: 6
+  ground: {fileID: 11400000, guid: 03be7ddaff1f9403f921f9589e2ab401, type: 2}
+  water: {fileID: 11400000, guid: d920ed9d6a56b49fc8257b1bf8ae1b98, type: 2}
+  thresholdMin: 0.4
+  thresholdMax: 0.6
+  duration: 2
 --- !u!483693784 &1705128545
 TilemapRenderer:
   m_ObjectHideFlags: 0
